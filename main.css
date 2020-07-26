@@ -8,7 +8,7 @@ html{
 body{ 
 	width: 100%;
 	height: 100%;
-	background-color: #fff;
+	background-color: #d6e2ee; /* цвет общего фона */
 	width: 100%;
 	height: 100%;
 	margin: 0px;
@@ -95,7 +95,7 @@ img{
     padding: 30px;
     padding-right: 50px;
     border-radius: 30px 30px 10px 30px;
-    background-color: #e2ffc7;
+    background-color: #e2ffc7; /* цвет фона сообщения */
     color: #fff;
     font-size: 24px;
     line-height: 36px;
@@ -109,12 +109,12 @@ img{
     transition: border-bottom-color 0.3s;
     border-bottom-width: 2px;
     border-bottom-style: solid;
-    border-bottom-color: #37d8bf;
+    border-bottom-color: #37d8bf; /* цвет текста ссылки */
 	cursor: pointer !important;
 }
 
 .dialog_case a:hover{
-    border-bottom-color: #1c8dfd;
+    border-bottom-color: #1c8dfd; /* цвет подчеркивания текста ссылки */
 }
 
 .dialog_case.gophoto{
