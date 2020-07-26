@@ -1,11 +1,158 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>test 222 Página de prueba<title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Денис Столяров</title>
+	<meta name="Author" CONTENT="Денис Столяров">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+	<meta name="keywords" content="тест тест тест">
+	<meta name="description" content="Бот-сайт">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, minimal-ui"/>
+    
+    <meta property="og:title" content="Тест">
+    <meta property="og:description" content="Бот-сайт">
+    <meta property="og:site_name" content="Тест">
+    <meta property="og:url" content="https://stolyarovden.github.io">
+    <meta property="og:image" content="egor.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Ntcn">
+    <meta property="twitter:description" content="Бот-сайт">
+    <meta property="twitter:url" content="https://stolyarovden.github.io">
+    <meta property="twitter:image" content="egor.jpg">
+
+    <meta property="vk:image"  content="egor.jpg">
+    
+    <script src="js.js"></script>
+    
 </head>
+
 <body>
-  <h1>Hola amiguitos!</h1>
-  <footer>gpuma 2017</footer>
+    
+    <a href="https://t.me/wingsman_ru" target="_blank" class="send_but"><img src="img/send.svg"></a>
+    <div class="send_panel">
+        <a href="#contacts" class="tag_but">#контакты</a>
+        <a href="#articles" class="tag_but">#статьи</a>
+        <a href="#speeches" class="tag_but">#презентации</a>
+        <a href="#projects" class="tag_but">#проекты&#9889;</a>
+        <a href="#photo" class="tag_but">#фото</a>
+        <a href="#whatsup" class="tag_but">#какдела</a>
+        <div class="cle"></div>
+    </div>
+    
+    <a href="#hello" class="me_photo">
+		<div class="me_glass" id="me_glass"><img src="img/me_glass.png"></div>
+        <img src="img/me.jpg">
+    </a>
+    
+	<div class="first_screen" id="hello">
+        <div class="dialog_case">
+            Привет! Меня зовут Test, я&nbsp;специализируюсь на&nbsp;продуктовой разработке. В&nbsp;настоящее время.
+			<br><br>
+			Для тех, кто в&nbsp;тренде, предусмотрена &laquo;<a onclick="darkmode()" style="cursor: pointer;">Темная&nbsp;тема</a>&raquo;&nbsp;&#127770;
+        </div>
+    </div>
+    
+    <div class="first_screen" id="whatsup">
+        <div class="dialog_case">
+            <div class="top_hash">#какдела<span class="hash_info">upd: 08.07.2020</span></div>
+            Запустили сайт нашего нового стартапа — платформы <a href="http://beams.pro/" target="_blank">Beams</a>, на которой сейчас строится &laquo;<a href="https://dreamersforum.ru/" target="_blank">Мечтатели Онлайн Форум&nbsp;2020</a>&raquo;.
+        </div>
+    </div>
+    
+    <div class="first_screen" id="photo">
+        <div class="dialog_case gophoto">
+            <div class="top_hash">#фото<span class="hash_info">редактор 1.0</span></div>
+            <div class="big_photo">
+                <div class="big_photo_art" id="me_big_tattoo"><img src="img/me_big_tattoo.png"></div>
+                <div class="big_photo_art" id="me_big_glass"><img src="img/me_big_glass.png"></div>
+                <div class="big_photo_art" id="me_big_mustache"><img src="img/me_big_mustache.png"></div>
+                <div class="big_photo_art" id="me_big_beard"><img src="img/me_big_beard.png"></div>
+                <img src="img/me_big.jpg">
+          </div>
+            <br>
+            И заглядывай в&nbsp;<a href="https://www.instagram.com/" target="_blank">Instagram</a> &#128527;
+        </div>
+    </div>
+    
+    <div class="first_screen" id="projects">
+        <div class="dialog_case">
+            <div class="top_hash">#проекты&#9889;<span class="hash_info">since 2010</span></div>
+            &#128165; <a href="http://" target="_blank">test11</a>.
+            <br>
+            &#11088; <a href="https://" target="_blank">test10</a>.
+            <br>
+            &#127828; <a href="https://" target="_blank">test9</a>.
+            <br>
+            &#127912; <a href="http://" target="_blank">test8</a>.
+            <br>
+			&#128293; <a href="https://" target="_blank">test7</a> (ex-CoffeeMilk Intractive).
+            <br>
+            &#128640; <a href="http://" target="_blank">test6</a> —&nbsp;заморожен.
+            <br>
+            &#127965; <a href="https://" target="_blank">test5</a> —&nbsp;заморожен.
+            <br>
+            &#127891; <a href="http://" target="_blank">test4</a> (co-founder) —&nbsp;закрыт.
+			<br>
+			&#128035; Branda marketplace —&nbsp;закрыт.
+        </div>
+    </div>
+    
+    <div class="first_screen" id="speeches">
+        <div class="dialog_case">
+            <div class="top_hash">#презентации<span class="hash_info">5 favorites out of 28</span></div>
+            — СПИК&nbsp;2019: <a href="pres/spic2019.pdf" target="_blank">Как обеспечить системный рост компании, используя Growth Hacking</a>.
+            <br>
+            — ProductSense&nbsp;2019: <a href="pres/productsense2019.pdf" target="_blank">Как создать свой «Убер»</a>.
+            <br>
+            — Оборот&nbsp;2018: <a href="pres/oborot2018.pdf" target="_blank">Как мы интегрировали Google Assistant в&nbsp;Петровича</a>.
+            <br>
+            — Битрикс&nbsp;2017: <a href="pres/zeroui2017.pdf" target="_blank">Zero UI: от&nbsp;сложного к&nbsp;простому</a>.
+            <br>
+            — Замес&nbsp;2017: <a href="pres/zames2017.pdf" target="_blank">Как личный бренд помогает развитию компании</a>.
+        </div>
+    </div>
+    
+    <div class="first_screen" id="articles">
+        <div class="dialog_case">
+            <div class="top_hash">#статьи<span class="hash_info">3 favorites out of 14</span></div>
+            —  <a href="https://vc.ru/" target="_blank">Как организовать большое бизнес-мероприятие под своим брендом</a>.
+            <br>
+            —  <a href="https://vc.ru/" target="_blank">Плюсы и&nbsp;минусы русскоязычного Google Assistant на&nbsp;примере m-commerce приложения «Петрович»</a>.
+            <br>
+            —  <a href="https://vc.ru/" target="_blank">Как технологии меняют наши привычки посещения ресторанов и&nbsp;заказа еды на&nbsp;дом</a>.
+            <br><br>
+            Больше <a href="https://vc.ru/" target="_blank">на VC</a> &#129299;
+        </div>
+    </div>
+    
+    <div class="first_screen" id="contacts">
+        <div class="dialog_case">
+            <div class="top_hash">#контакты</div>
+            — <a href="https://t.me/" target="_blank">Telegram</a>.
+            <br>
+            — <a href="https://www.facebook.com/" target="_blank">Facebook</a>.
+            <br>
+			— <a href="https://www.instagram.com/" target="_blank">Instagram</a>.
+            <br>
+            — <a href="https://vk.com/" target="_blank">VK</a>.
+            <br>
+            — <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>.
+            <br><br>
+            Почта: <a href="stolyarovden@gmail.com">test email</a>.
+        </div>
+    </div>
+    
+    <a onclick="darkmode()" class="dark_but" id="dark_but">
+        <div class="dark_but_inside" id="dark_but_inside">
+            &#127770;<br>&#127773;
+        </div>
+    </a>
+    <div id="dark_bg" class="dark_bg"></div>
+
 </body>
 </html>
