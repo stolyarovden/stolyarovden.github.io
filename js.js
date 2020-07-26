@@ -9,12 +9,12 @@ function darkmode(){
     
     if(d == 0){
         document.getElementById('dark_bg').style.backgroundColor = '#333';
-        document.getElementById('dark_but').style.backgroundColor = '#fff';
+        document.getElementById('dark_but').style.backgroundColor = '#d6e2ee';
         document.getElementById('dark_but_inside').style.top = '-30px';
 		document.getElementById('me_glass').style.top = '0px';
         d = 1;
     }else{
-        document.getElementById('dark_bg').style.backgroundColor = '#fff';
+        document.getElementById('dark_bg').style.backgroundColor = '#d6e2ee';
         document.getElementById('dark_but').style.backgroundColor = '#333';
         document.getElementById('dark_but_inside').style.top = '0px';
 		document.getElementById('me_glass').style.top = '80px';
