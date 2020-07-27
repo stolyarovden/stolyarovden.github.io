@@ -1,158 +1,91 @@
-<!DOCTYPE html>
-<html>
 
+<!doctype html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Soho - Chat and Discussion Platform</title>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Денис Столяров 1</title>
-	<meta name="Author" CONTENT="Денис Столяров">
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
-	<meta name="keywords" content="тест тест тест">
-	<meta name="description" content="Бот-сайт">
-    <link rel="stylesheet" type="text/css" href="main.css">
-    
-    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, minimal-ui"/>
-    
-    <meta property="og:title" content="Тест">
-    <meta property="og:description" content="Бот-сайт">
-    <meta property="og:site_name" content="Тест">
-    <meta property="og:url" content="https://stolyarovden.github.io">
-    <meta property="og:image" content="egor.jpg">
+    <!-- Favicon -->
+    <link rel="icon" href="./dist/media/img/favicon.png" type="image/png">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Ntcn">
-    <meta property="twitter:description" content="Бот-сайт">
-    <meta property="twitter:url" content="https://stolyarovden.github.io">
-    <meta property="twitter:image" content="egor.jpg">
-
-    <meta property="vk:image"  content="egor.jpg">
-    
-    <script src="js.js"></script>
-    
+    <!-- Soho css -->
+    <link rel="stylesheet" href="./dist/css/soho.css">
 </head>
-
 <body>
-    
-    <a href="https://t.me/" target="_blank" class="send_but"><img src="img/send.svg"></a>
-    <div class="send_panel">
-        <a href="#contacts" class="tag_but">#контакты</a>
-        <a href="#articles" class="tag_but">#статьи</a>
-        <a href="#speeches" class="tag_but">#презентации</a>
-        <a href="#projects" class="tag_but">#проекты&#9889;</a>
-        <a href="#photo" class="tag_but">#фото</a>
-        <a href="#whatsup" class="tag_but">#какдела</a>
-        <div class="cle"></div>
-    </div>
-    
-    <a href="#hello" class="me_photo">
-		<div class="me_glass" id="me_glass"><img src="img/me_glass.png"></div>
-        <img src="img/me.jpg">
-    </a>
-    
-	<div class="first_screen" id="hello">
-        <div class="dialog_case">
-            Привет! Меня зовут Test, я&nbsp;специализируюсь на&nbsp;продуктовой разработке. В&nbsp;настоящее время.
-			<br><br>
-			Для тех, кто в&nbsp;тренде, предусмотрена &laquo;<a onclick="darkmode()" style="cursor: pointer;">Темная&nbsp;тема</a>&raquo;&nbsp;&#127770;
+
+<!-- page loading -->
+<div class="page-loading"></div>
+<!-- ./ page loading -->
+
+
+
+
+<!-- layout -->
+<div class="layout">
+
+
+    <!-- content -->
+    <div class="content">
+
+
+        <!-- chat -->
+        <div class="chat">
+            
+            <div class="chat-body"> <!-- .no-message -->
+                <!--
+                <div class="no-message-container">
+                    <i class="fa fa-comments-o"></i>
+                    <p>Select a chat to read messages</p>
+                </div>
+                -->
+                <figure class="avatar avatar-lg">
+                        <img src="https://via.placeholder.com/150" class="rounded-circle">
+                    </figure>
+                <div class="messages">
+                    <div class="message-item outgoing-message">
+                        <div class="message-content">
+                            I know how important this file is to you. You can trust me ;)
+                        </div>
+                        <div class="message-action">
+                            Pm 14:50 <i class="ti-double-check"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-footer">
+                <form action="">
+                   
+                    <div class="form-buttons">
+                        <button class="btn btn-light btn-floating" type="button">
+                            <i class="fa fa-paperclip"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
+        <!-- ./ chat -->
+
     </div>
-    
-    <div class="first_screen" id="whatsup">
-        <div class="dialog_case">
-            <div class="top_hash">#какдела<span class="hash_info">upd: 08.07.2020</span></div>
-            Хорошо!
-        </div>
-    </div>
-    
-    <div class="first_screen" id="photo">
-        <div class="dialog_case gophoto">
-            <div class="top_hash">#фото<span class="hash_info">редактор 1.0</span></div>
-            <div class="big_photo">
-                <div class="big_photo_art" id="me_big_tattoo"><img src="img/me_big_tattoo.png"></div>
-                <div class="big_photo_art" id="me_big_glass"><img src="img/me_big_glass.png"></div>
-                <div class="big_photo_art" id="me_big_mustache"><img src="img/me_big_mustache.png"></div>
-                <div class="big_photo_art" id="me_big_beard"><img src="img/me_big_beard.png"></div>
-                <img src="img/me_big.jpg">
-          </div>
-            <br>
-            И заглядывай в&nbsp;<a href="https://www.instagram.com/" target="_blank">Instagram</a> &#128527;
-        </div>
-    </div>
-    
-    <div class="first_screen" id="projects">
-        <div class="dialog_case">
-            <div class="top_hash">#проекты&#9889;<span class="hash_info">since 2010</span></div>
-            &#128165; <a href="http://" target="_blank">test11</a>.
-            <br>
-            &#11088; <a href="https://" target="_blank">test10</a>.
-            <br>
-            &#127828; <a href="https://" target="_blank">test9</a>.
-            <br>
-            &#127912; <a href="http://" target="_blank">test8</a>.
-            <br>
-			&#128293; <a href="https://" target="_blank">test7</a> (ex-CoffeeMilk Intractive).
-            <br>
-            &#128640; <a href="http://" target="_blank">test6</a> —&nbsp;заморожен.
-            <br>
-            &#127965; <a href="https://" target="_blank">test5</a> —&nbsp;заморожен.
-            <br>
-            &#127891; <a href="http://" target="_blank">test4</a> (co-founder) —&nbsp;закрыт.
-			<br>
-			&#128035; Тест322 —&nbsp;закрыт.
-        </div>
-    </div>
-    
-    <div class="first_screen" id="speeches">
-        <div class="dialog_case">
-            <div class="top_hash">#презентации<span class="hash_info">5 favorites out of 28</span></div>
-            — през&nbsp;2019: <a href="pres/spic2019.pdf" target="_blank">през5</a>.
-            <br>
-            — през&nbsp;2019: <a href="pres/productsense2019.pdf" target="_blank">през4</a>.
-            <br>
-            — през&nbsp;2018: <a href="pres/oborot2018.pdf" target="_blank">през3а</a>.
-            <br>
-            — през&nbsp;2017: <a href="pres/zeroui2017.pdf" target="_blank">през2</a>.
-            <br>
-            — през&nbsp;2017: <a href="pres/zames2017.pdf" target="_blank">през1</a>.
-        </div>
-    </div>
-    
-    <div class="first_screen" id="articles">
-        <div class="dialog_case">
-            <div class="top_hash">#статьи<span class="hash_info">3 favorites out of 14</span></div>
-            —  <a href="https://vc.ru/" target="_blank">Как организовать большое бизнес-мероприятие под своим брендом</a>.
-            <br>
-            —  <a href="https://vc.ru/" target="_blank">Плюсы и&nbsp;минусы русскоязычного Google Assistant на&nbsp;примере m-commerce приложения «Петрович»</a>.
-            <br>
-            —  <a href="https://vc.ru/" target="_blank">Как технологии меняют наши привычки посещения ресторанов и&nbsp;заказа еды на&nbsp;дом</a>.
-            <br><br>
-            Больше <a href="https://vc.ru/" target="_blank">на VC</a> &#129299;
-        </div>
-    </div>
-    
-    <div class="first_screen" id="contacts">
-        <div class="dialog_case">
-            <div class="top_hash">#контакты</div>
-            — <a href="https://t.me/" target="_blank">Telegram</a>.
-            <br>
-            — <a href="https://www.facebook.com/" target="_blank">Facebook</a>.
-            <br>
-			— <a href="https://www.instagram.com/" target="_blank">Instagram</a>.
-            <br>
-            — <a href="https://vk.com/" target="_blank">VK</a>.
-            <br>
-            — <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>.
-            <br><br>
-            Почта: <a href="stolyarovden@gmail.com">test email</a>.
-        </div>
-    </div>
-    
-    <a onclick="darkmode()" class="dark_but" id="dark_but">
-        <div class="dark_but_inside" id="dark_but_inside">
-            &#127770;<br>&#127773;
-        </div>
-    </a>
-    <div id="dark_bg" class="dark_bg"></div>
+    <!-- ./ content -->
+
+</div>
+<!-- ./ layout -->
+
+<!-- JQuery -->
+<script src="./vendor/jquery-3.4.1.min.js"></script>
+
+
+
+<!-- Bootstrap -->
+<script src="./vendor/bootstrap/bootstrap.min.js"></script>
+
+
+<!-- Soho -->
+<script src="./dist/js/soho.min.js"></script>
+
 
 </body>
 </html>
