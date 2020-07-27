@@ -114,7 +114,7 @@ img{
 }
 
 .dialog_case a:hover{
-    border-bottom-color: #61069b; /* цвет подчеркивания текста ссылки с наведением */
+    border-bottom-color: #e2ffc7; /* цвет подчеркивания текста ссылки с наведением */
 }
 
 .dialog_case.gophoto{
