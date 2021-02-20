@@ -2254,6 +2254,10 @@ a.btn:hover, a.btn:active, a.btn:focus {
 }
 
 body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
   background-color: #ebebeb;
   font-family: 'Gill Sans', sans-serif;
   font-size: 14px;
@@ -2704,9 +2708,6 @@ nav.navigation .nav-group {
 
 nav.navigation ul {
   height: 100vh;
-  height: -webkit-calc(var(--vh, 1vh) * 100);
-  height: -moz-calc(var(--vh, 1vh) * 100);
-  height: calc(var(--vh, 1vh) * 100);
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -3245,7 +3246,9 @@ body.form-membership .form-wrapper hr {
 .layout {
   position: relative;
   bottom: 0;
-  height: 100vh;
+  height: 100%;
+  width: 100%; 
+  padding-top: 685px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -3552,7 +3555,11 @@ figure.avatar.avatar-lg {
 }
 
 @media screen and (max-width:913px) {
-       
+
+.layout {
+	padding-top: 695px;
+}
+    
 .layout .content .chat .chat-body .messages .message-item .message-action {
   font-size: 14px;
 }
@@ -3601,6 +3608,9 @@ figure.avatar {
 
 @media screen and (max-width:809px) {
 
+    .layout {
+	padding-top: 658px;
+}
     .layout .content .chat .chat-body .messages {
     bottom: 137px; /*track res*/
     }
@@ -3614,6 +3624,10 @@ figure.avatar {
 }
 
 @media screen and (max-width:499px) {
+        .layout {
+	padding-top: 670px;
+}
+    
     figure.avatar {
     bottom: 115px;
     right: -20px;
@@ -3630,7 +3644,11 @@ figure.avatar {
 }
 
 @media screen and (max-width:478px) {
-    
+
+.layout {
+	padding-top: 645px;
+}
+
 .btn {
   font-size: 17px;
   padding: 5px 10px;
