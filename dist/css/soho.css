@@ -3243,7 +3243,8 @@ body.form-membership .form-wrapper hr {
 }
 
 .layout {
-  position: relative;
+  position: absolute;
+  bottom: 0;
   height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
