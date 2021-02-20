@@ -3257,6 +3257,7 @@ body.form-membership .form-wrapper hr {
 
 .layout .content {
   padding: 30px;
+  bottom: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
