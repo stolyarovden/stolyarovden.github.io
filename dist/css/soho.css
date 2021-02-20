@@ -2388,10 +2388,12 @@ ul.list-inline.social-links .list-inline-item {
 }
 /* положение аватара */
 figure.avatar {
-  display: inline-block;
-    position: fixed;
-    bottom: 120px;
-    right: 30px;
+    display: block;
+    position: absolute; /* !!! */
+    bottom: 85px;
+    right: -20px;
+    margin: 50px 50px;
+    overflow: hidden;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
@@ -2481,7 +2483,7 @@ figure.avatar.avatar-xl .avatar-title {
 figure.avatar.avatar-xl.avatar-state-primary:before, figure.avatar.avatar-xl.avatar-state-success:before, figure.avatar.avatar-xl.avatar-state-danger:before, figure.avatar.avatar-xl.avatar-state-warning:before, figure.avatar.avatar-xl.avatar-state-info:before, figure.avatar.avatar-xl.avatar-state-secondary:before, figure.avatar.avatar-xl.avatar-state-light:before, figure.avatar.avatar-xl.avatar-state-dark:before {
   width: 1.2rem;
   height: 1.2rem;
-  top: 2px;
+  top: 25px;
   right: 7px;
 }
 
@@ -2536,12 +2538,11 @@ figure.avatar.avatar-state-dark:before {
 }
 
 .avatar-group {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -moz-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  margin-right: 2.2rem;
+    display: block;
+    float: right;
+    margin: 5px 0px;
+    margin-left: 10px;
+    overflow: hidden;
 }
 
 .avatar-group figure.avatar {
@@ -2553,8 +2554,11 @@ figure.avatar.avatar-state-dark:before {
 }
 
 .avatar-group figure.avatar:hover {
-  position: relative;
-  z-index: 1;
+    display: block;
+    float: right;
+    margin: 5px 0px;
+    margin-left: 10px;
+    overflow: hidden;
 }
 
 .modal-content {
@@ -3557,8 +3561,8 @@ figure.avatar.avatar-lg {
 }
 
 figure.avatar {
-    bottom: 115px;
-    right: 30px;
+    bottom: 80px;
+    right: -20px;
 }
 
     
@@ -3593,24 +3597,24 @@ figure.avatar {
     
 }
 
-@media screen and (max-width:817px) {
+@media screen and (max-width:809px) {
 
     .layout .content .chat .chat-body .messages {
     bottom: 137px; /*track res*/
     }
 
     figure.avatar {
-    bottom: 160px;
-    right: 30px;
+    bottom: 120px;
+    right: -20px;
 }
 
     
 }
 
-@media screen and (max-width:491px) {
+@media screen and (max-width:499px) {
     figure.avatar {
-    bottom: 150px;
-    right: 30px;
+    bottom: 115px;
+    right: -20px;
 }
 .btn {
   font-size: 12px;
@@ -3642,13 +3646,13 @@ figure.avatar {
     }
 
     figure.avatar {
-    bottom: 190px;
-    right: 30px;
+    bottom: 155px;
+    right: -20px;
 }
 
 }
 
-@media screen and (max-width:375px) {
+@media screen and (max-width:409px) {
 .btn {
   font-size: 15px;
   padding: 5px 5px;
@@ -3666,9 +3670,13 @@ figure.avatar {
     right: 69px; /*after photo*/
     
     }
+figure.avatar {
+    bottom: 150px;
+    right: -20px;
+}
 }
 
-@media screen and (max-width:360px) {
+@media screen and (max-width:370px) {
 .btn {
   font-size: 12px;
   padding: 5px 5px;
