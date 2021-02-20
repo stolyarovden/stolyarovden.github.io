@@ -252,7 +252,7 @@ a:hover {
 /* link color */
 a:not(.active.list-group-item), a:not(.btn):active, a:not(.btn):focus {
   text-decoration: underline;
-  color: #0C3563;
+  color: #e0f4ff;
   outline: none;
 }
 /* hover link color */
@@ -275,7 +275,7 @@ a.btn:hover, a.btn:active, a.btn:focus {
 }
 
 .btn {
-  font-size: 14px;
+  font-size: 17px;
 /*  width: auto; */
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -410,7 +410,6 @@ a.btn:hover, a.btn:active, a.btn:focus {
 
 .btn.btn-primary, a.btn[href="#next"], a.btn[href="#previous"] {
   background: rgba(2, 148, 170, 0.6);
-  border-color: rgba(2, 148, 170, 0.6);
 }
 
 .btn.btn-primary:not(:disabled):not(.disabled):hover, a.btn:not(:disabled):not(.disabled):hover[href="#next"], a.btn:not(:disabled):not(.disabled):hover[href="#previous"], .btn.btn-primary:not(:disabled):not(.disabled):focus, a.btn:not(:disabled):not(.disabled):focus[href="#next"], a.btn:not(:disabled):not(.disabled):focus[href="#previous"], .btn.btn-primary:not(:disabled):not(.disabled):active, a.btn:not(:disabled):not(.disabled):active[href="#next"], a.btn:not(:disabled):not(.disabled):active[href="#previous"] {
@@ -3549,9 +3548,14 @@ figure.avatar.avatar-lg {
   height: 4rem;
   width: 4rem;
 }
+
+.btn {
+  font-size: 16px;
 }
 
-@media screen and (max-width:896px) {
+}
+
+@media screen and (max-width:913px) {
        
 .layout .content .chat .chat-body .messages .message-item .message-action {
   font-size: 14px;
@@ -3582,7 +3586,7 @@ figure.avatar {
 }
     
 .btn {
-  font-size: 12px;
+  font-size: 14px;
   padding: 8px 13px;
 }
 
@@ -3599,7 +3603,7 @@ figure.avatar {
     
 }
 
-@media screen and (max-width:792px) {
+@media screen and (max-width:817px) {
 
     .layout .content .chat .chat-body .messages {
     bottom: 137px; /*track res*/
@@ -3630,6 +3634,18 @@ figure.avatar {
 }
 
 @media screen and (max-width:478px) {
+    
+.btn {
+  font-size: 17px;
+  padding: 5px 10px;
+}
+.layout .content .chat .chat-body .messages .message-item .message-content {
+  font-size: 15px;
+}
+.layout .content .chat .chat-body .messages .message-item .message-action {
+  font-size: 13px;
+}
+    
     .layout .content .chat .chat-body .messages {
     bottom: 170px; /*track res*/
     width: 96%;
@@ -3644,32 +3660,40 @@ figure.avatar {
 
 @media screen and (max-width:375px) {
 .btn {
-  font-size: 10px;
-  padding: 5px 10px;
+  font-size: 15px;
+  padding: 5px 5px;
 }
 .layout .content .chat .chat-body .messages .message-item .message-content {
-  font-size: 12px;
+  font-size: 15px;
 }
 .layout .content .chat .chat-body .messages .message-item .message-action {
-  font-size: 10px;
+  font-size: 13px;
 }
     .layout .content .chat .chat-body .messages {
     bottom: 165px; /*track res*/
-    width: 93%;
+        
+    width: 98%; /*track res*/
+    right: 69px; /*after photo*/
+    
     }
 }
 
-@media screen and (max-width:341px) {
+@media screen and (max-width:360px) {
 .btn {
-  font-size: 8px;
-  padding: 4px 9px;
+  font-size: 12px;
+  padding: 5px 5px;
 }
 .layout .content .chat .chat-body .messages .message-item .message-content {
-  font-size: 9px;
+  font-size: 13px;
 }
 .layout .content .chat .chat-body .messages .message-item .message-action {
-  font-size: 8px;
+  font-size: 12px;
 }
+      .layout .content .chat .chat-body .messages {
+        
+    width: 96%; /*track res*/
+    
+    }
 }
     
 }
