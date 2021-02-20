@@ -3241,9 +3241,6 @@ body.form-membership .form-wrapper hr {
 .layout {
   position: relative;
   height: 100vh;
-  height: -webkit-calc(var(--vh, 1vh) * 100);
-  height: -moz-calc(var(--vh, 1vh) * 100);
-  height: calc(var(--vh, 1vh) * 100);
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
