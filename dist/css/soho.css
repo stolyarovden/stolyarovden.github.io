@@ -343,14 +343,14 @@ a.btn:hover, a.btn:active, a.btn:focus {
 }
 /*send button*/
 .btn.btn-floating {
-    position: fixed;
     height: 35px;
     width: 35px;
-    right: 52px;
-    bottom: 45px;
-    overflow: hidden;
-    display: block;
     
+    display: block;
+    position: absolute; /* !!! */
+    bottom: 45px;
+    right: 52px;
+    overflow: hidden;
     
   -webkit-box-align: center;
   -webkit-align-items: center;
