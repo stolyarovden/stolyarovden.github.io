@@ -7,6 +7,8 @@
   color: white !important;
 }
 
+::-webkit-scrollbar { width: 0;}
+
 .bg-primary-bright {
   background: #c0c5e4 !important;
 }
