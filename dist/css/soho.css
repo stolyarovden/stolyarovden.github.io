@@ -3433,7 +3433,7 @@ body.form-membership .form-wrapper hr {
 
 .layout .content .chat .chat-body .messages .message-item {
   max-width: 75%;
-  margin-bottom: 20px;
+  margin-bottom: 200px;
 }
 /* текстовое сообщение: вид */
 .layout .content .chat .chat-body .messages .message-item .message-content {
