@@ -12,8 +12,6 @@
   background: #c0c5e4 !important;
 }
 
-::-webkit-scrollbar { width: 0;}
-
 .bg-primary-gradient {
   background: -webkit-linear-gradient(220deg, #3db16b, #65d993) !important;
   background: -moz- oldlinear-gradient(220deg, #3db16b, #65d993) !important;
@@ -2396,7 +2394,7 @@ ul.list-inline.social-links .list-inline-item {
 figure.avatar {
     display: block;
     position: absolute; /* !!! */
-    bottom: 87px;
+    bottom: 49px;
     right: -20px;
     margin: 50px 50px;
     overflow: hidden;
@@ -3302,10 +3300,10 @@ body.form-membership .form-wrapper hr {
           flex: 1;
 }
 
-
+/*
 .layout .content .chat {
 
-  flex: 1;
+  flex: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3313,7 +3311,7 @@ body.form-membership .form-wrapper hr {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-}
+}*/
 
 .layout .content .chat .chat-header {
     display: -webkit-box;
@@ -3368,7 +3366,6 @@ body.form-membership .form-wrapper hr {
      -moz-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  margin: 20px 0;
 }
 
 .layout .content .chat .chat-body:not(.no-message) {
@@ -3427,7 +3424,7 @@ body.form-membership .form-wrapper hr {
   display: -ms-flexbox;
   display: flex;
     position: absolute; 
-    bottom: 100px; /*track res*/
+    bottom: 60px; /*track res*/
     right: 113px; /*track res*/
     width: 80%; /*track res*/
     padding: 10px; /*track res*/
@@ -3565,7 +3562,7 @@ body.form-membership .form-wrapper hr {
     
 
     .layout .content .chat .chat-body .messages {
-    bottom: 100px; /*track res*/
+
     right: 95px; /*after photo*/
     }
     
@@ -3605,13 +3602,13 @@ figure.avatar.avatar-lg {
 }
 
 figure.avatar {
-    bottom: 80px;
+    bottom: 35px;
     right: -20px;
 }
 
     
     .layout .content .chat .chat-body .messages {
-    bottom: 95px; /*track res*/
+    bottom: 50px; /*track res*/
     right: 67px; /*after photo*/
     width: 80%; /*track res*/
     padding: 10px; /*track res*/
@@ -3678,11 +3675,11 @@ figure.avatar {
 
 
 figure.avatar {
-    bottom: 120px;
+    bottom: 80px;
 }
     
     .layout .content .chat .chat-body .messages {
-    bottom: 137px; /*track res*/
+    bottom: 97px; /*track res*/
     right: 67px; /*after photo*/
     width: 80%; /*track res*/
     padding: 10px; /*track res*/
@@ -3715,12 +3712,12 @@ figure.avatar {
 }
     
     .layout .content .chat .chat-body .messages {
-    bottom: 183px; /*track res*/
+    bottom: 145px; /*track res*/
     width: 96%;
     }
 
     figure.avatar {
-    bottom: 168px;
+    bottom: 130px;
  
 }
     .separator{
@@ -3729,8 +3726,37 @@ figure.avatar {
 
 }
 
-@media screen and (max-width:360px) {
 
+
+@media screen and (max-width:375px) and (max-height:812px) {
+
+
+.btn {
+  font-size: 14px;
+  padding: 8px 10px;
+}
+.layout .content .chat .chat-body .messages .message-item .message-content {
+  font-size: 15px;
+}
+.layout .content .chat .chat-body .messages .message-item .message-action {
+  font-size: 13px;
+}
+    
+    .layout .content .chat .chat-body .messages {
+    bottom: 145px; /*track res*/
+    width: 96%;
+    }
+
+    figure.avatar {
+    bottom: 130px;
+ 
+}
+    .separator{
+    bottom: 189px;
+}
+}
+
+@media screen and (max-width:364px) {
 
 
 .btn {
@@ -3745,7 +3771,7 @@ figure.avatar {
 }
 
 }
-@media screen and (max-width:320px) {
+@media screen and (max-width:337px) {
 
 
     .separator{
