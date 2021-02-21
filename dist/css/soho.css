@@ -3418,22 +3418,15 @@ body.form-membership .form-wrapper hr {
 
 /* текстовое сообщение: положение */
 .layout .content .chat .chat-body .messages {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-    position: absolute; 
-    bottom: 60px; /*track res*/
-    right: 113px; /*track res*/
-    width: 80%; /*track res*/
-    padding: 10px; /*track res*/
-    padding-right: 30px; /*track res*/
+  position: absolute; 
+  bottom: 90px; /*track res*/
+  right: 113px; /*track res*/
+  width: 80%; /*track res*/
+  padding-right: 30px; /*track res*/
 }
 
 .layout .content .chat .chat-body .messages .message-item {
   max-width: 75%;
-  margin-bottom: 1%;
 }
 /* текстовое сообщение: вид */
 .layout .content .chat .chat-body .messages .message-item .message-content {
@@ -3608,7 +3601,7 @@ figure.avatar {
 
     
     .layout .content .chat .chat-body .messages {
-    bottom: 50px; /*track res*/
+    bottom: 70px; /*track res*/
     right: 67px; /*after photo*/
     width: 80%; /*track res*/
     padding: 10px; /*track res*/
@@ -3679,7 +3672,7 @@ figure.avatar {
 }
     
     .layout .content .chat .chat-body .messages {
-    bottom: 97px; /*track res*/
+    bottom: 115px; /*track res*/
     right: 67px; /*after photo*/
     width: 80%; /*track res*/
     padding: 10px; /*track res*/
@@ -3712,7 +3705,7 @@ figure.avatar {
 }
     
     .layout .content .chat .chat-body .messages {
-    bottom: 145px; /*track res*/
+    bottom: 165px; /*track res*/
     width: 96%;
     }
 
@@ -3742,12 +3735,12 @@ figure.avatar {
 }
     
     .layout .content .chat .chat-body .messages {
-    bottom: 145px; /*track res*/
+    bottom: 165px; /*track res*/
     width: 96%;
     }
 
     figure.avatar {
-    bottom: 240px;
+    bottom: 130px;
  
 }
     .separator{
@@ -3772,7 +3765,15 @@ figure.avatar {
 }
 @media screen and (max-width:337px) {
 
+    .layout .content .chat .chat-body .messages {
+    bottom: 145px; /*track res*/
+    width: 96%;
+    }
 
+    figure.avatar {
+    bottom: 110px;
+ 
+}
     .separator{
     bottom: 170px;
 }
