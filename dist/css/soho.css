@@ -3433,7 +3433,7 @@ body.form-membership .form-wrapper hr {
 
 .layout .content .chat .chat-body .messages .message-item {
   max-width: 75%;
-  margin-bottom: 20px;
+  margin-bottom: 1%;
 }
 /* текстовое сообщение: вид */
 .layout .content .chat .chat-body .messages .message-item .message-content {
@@ -3728,21 +3728,17 @@ figure.avatar {
 
 
 
-@media screen and (max-width:375px) and (max-height:812px) {
-
-.layout .content .chat .chat-body .messages .message-item {
-  margin-bottom: 130px;
-}
+@media screen and (max-width:375px) {
 
 .btn {
   font-size: 14px;
   padding: 8px 10px;
 }
 .layout .content .chat .chat-body .messages .message-item .message-content {
-  font-size: 15px;
+  font-size: 14px;
 }
 .layout .content .chat .chat-body .messages .message-item .message-action {
-  font-size: 13px;
+  font-size: 12px;
 }
     
     .layout .content .chat .chat-body .messages {
@@ -3791,6 +3787,7 @@ figure.avatar {
 .layout .content .chat .chat-body .messages .message-item .message-action {
   font-size: 10px;
 }
+
 }
     
 }
