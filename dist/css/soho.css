@@ -2393,9 +2393,9 @@ ul.list-inline.social-links .list-inline-item {
 /* положение аватара */
 figure.avatar {
     display: block;
-    position: absolute; /* !!! */
-    bottom: 49px;
-    right: -20px;
+    position: fixed; /* !!! */
+    bottom: 83px;
+    right: -30px;
     margin: 50px 50px;
     overflow: hidden;
   -webkit-border-radius: 50%;
@@ -3244,9 +3244,9 @@ body.form-membership .form-wrapper hr {
 }
 
 .layout {
-  position: relative;
+  position: fixed;
   bottom: 0;
-  padding-top: 11vh;
+  /*padding-top: 5vh;*/
   height: 100%;
   width: 100%; 
   display: -webkit-box;
@@ -3254,7 +3254,7 @@ body.form-membership .form-wrapper hr {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: auto auto; /*???*/
+  /*padding-top: auto auto; ???*/
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -3292,7 +3292,7 @@ body.form-membership .form-wrapper hr {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 84vh;  /*!!!!*/
+ /* padding-top: 1vh;  !!!!*/
   -webkit-box-flex: 1;
   -webkit-flex: 1;
      -moz-box-flex: 1;
@@ -3418,8 +3418,8 @@ body.form-membership .form-wrapper hr {
 
 /* текстовое сообщение: положение */
 .layout .content .chat .chat-body .messages {
-  position: absolute; 
-  bottom: 90px; /*track res*/
+  position: fixed; 
+  bottom: 125px; /*track res*/
   right: 113px; /*track res*/
   width: 80%; /*track res*/
   padding-right: 30px; /*track res*/
@@ -3595,13 +3595,13 @@ figure.avatar.avatar-lg {
 }
 
 figure.avatar {
-    bottom: 35px;
-    right: -20px;
+    bottom: 73px;
+    right: -30px;
 }
 
     
     .layout .content .chat .chat-body .messages {
-    bottom: 70px; /*track res*/
+    bottom: 108px; /*track res*/
     right: 67px; /*after photo*/
     width: 80%; /*track res*/
     padding: 10px; /*track res*/
@@ -3668,11 +3668,11 @@ figure.avatar {
 
 
 figure.avatar {
-    bottom: 80px;
+    bottom: 115px;
 }
     
     .layout .content .chat .chat-body .messages {
-    bottom: 115px; /*track res*/
+    bottom: 150px; /*track res*/
     right: 67px; /*after photo*/
     width: 80%; /*track res*/
     padding: 10px; /*track res*/
@@ -3705,12 +3705,12 @@ figure.avatar {
 }
     
     .layout .content .chat .chat-body .messages {
-    bottom: 165px; /*track res*/
+    bottom: 195px; /*track res*/
     width: 96%;
     }
 
     figure.avatar {
-    bottom: 130px;
+    bottom: 160px;
  
 }
     .separator{
@@ -3733,16 +3733,7 @@ figure.avatar {
 .layout .content .chat .chat-body .messages .message-item .message-action {
   font-size: 12px;
 }
-    
-    .layout .content .chat .chat-body .messages {
-    bottom: 165px; /*track res*/
-    width: 96%;
-    }
 
-    figure.avatar {
-    bottom: 130px;
- 
-}
     .separator{
     bottom: 189px;
 }
@@ -3766,12 +3757,12 @@ figure.avatar {
 @media screen and (max-width:337px) {
 
     .layout .content .chat .chat-body .messages {
-    bottom: 145px; /*track res*/
+    bottom: 175px; /*track res*/
     width: 96%;
     }
 
     figure.avatar {
-    bottom: 110px;
+    bottom: 140px;
  
 }
     .separator{
