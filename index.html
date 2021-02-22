@@ -1,50 +1,87 @@
 <!doctype html>
+<!--
+
+Yet Another Хоумпейджер (YAX), beta 02a, 02/2021
+
+HTML & CSS basic code: Soho - Chat and Discussion Platform HTML Template by laborasyon (Envato)
+Idea: Pavel Durov, Egor Zolotukhin
+
+-->
 <html lang="en">
+
 <script src="./vendor/jquery-3.4.1.min.js"></script>
 <script src="./dist/js/picker.js"></script>
+
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1content, user-scalable=no"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Столяров Денис | Stolyarov Denis</title>
+    
+    <title>Stolyarov Denis | Столяров Денис</title>
 
-    <!-- Favicon -->
+    <!-- Favicon & Meta Credentials-->
     <link rel="icon" href="./dist/media/img/favicon.png" type="image/png">
+    <meta name="keywords" content="столяров денис, stolyarov denis, stolyarov, denis, столяров сколтех, столяров иннополис, столяров воронеж, столяров ассоциация, столяров научная рота">
+    <meta name="description" content="Yet Another Хоумпейджер">
+    
+    <meta property="og:site_name" content="stolyarovden.github.io"> 
+    <meta property="og:title" content="Stolyarov Denis | Столяров Денис">  
+    <meta property="og:description" content="Yet Another Хоумпейджер"> 
+    <meta property="og:image" content="./dist/media/img/web.jpg"> 
+    <meta property="og:image:alt" content="🤘"> 
+    <meta property="og:url" content="https://stolyarovden.github.io">
 
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(72796309, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/72796309" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+    
     <!-- Soho css -->
     <link rel="stylesheet" href="./dist/css/soho.css">
     
-<script>
-    var hash = window.location.hash;
-    $( document ).ready(function() {
-            switch(hash){
-                case '#me':
-                    pickMe(0);
-                break;
-                case '#digest':
-                    pickMe(1);
-                break;
-                case '#pres':
-                    pickMe(2);
-                break;
-                case '#pubs':
-                    pickMe(3);
-                break;
-                case '#projs':
-                    pickMe(4);
-                break;
-                case '#contact':
-                    pickMe(5);
-                break;
-                case '#eng':
-                    pickMe(6);
-                break;
-};
-    });
-</script>
+    <script>
+        var hash = window.location.hash;
+        $( document ).ready(function() {
+                switch(hash){
+                    case '#me':
+                        pickMe(0);
+                    break;
+                    case '#digest':
+                        pickMe(1);
+                    break;
+                    case '#pres':
+                        pickMe(2);
+                    break;
+                    case '#pubs':
+                        pickMe(3);
+                    break;
+                    case '#projs':
+                        pickMe(4);
+                    break;
+                    case '#contact':
+                        pickMe(5);
+                    break;
+                    case '#eng':
+                        pickMe(6);
+                    break;
+                };
+        });
+    </script>
 
-    
 </head>
+
 <body class="dark">
     
 <!-- layout -->
@@ -54,13 +91,12 @@
     <div class="content">
 
         <!-- chat -->
-    
         <div class="chat">  
-        <figure class="avatar avatar-lg">
-            <a href="#me" onclick="pickMe(0); timestamp()"><img src="./dist/media/img/me.jpg" class="rounded-circle"></a>
-        </figure>
+            <figure class="avatar avatar-lg">
+                <a href="#me" onclick="pickMe(0); timestamp()"><img src="./dist/media/img/me.jpg" class="rounded-circle"></a>
+            </figure>
             
-            <div class="chat-body"> <!-- .no-message -->
+            <div class="chat-body"> 
                 <div class="messages">
                     <div class="message-item outgoing-message" id="uno">
                         <div class="message-content"  id="myDIV">
@@ -70,35 +106,33 @@
                             <span id='tag'>$time</span>
                         </div>
                         <script>
-                                var today = new Date();
-                                var time = ("0" + today.getHours()).slice(-2) + ":" + ("0" + today.getMinutes()).slice(-2);
-                                document.getElementById('tag').innerHTML = time + " " +"<i class='ti-double-check'></i>";
+                            var today = new Date();
+                            var time = ("0" + today.getHours()).slice(-2) + ":" + ("0" + today.getMinutes()).slice(-2);
+                            document.getElementById('tag').innerHTML = time + " " +"<i class='ti-double-check'></i>";
                         </script>
                     </div>
                 </div>
             </div>
             <div class="separator"><div style="visibility: hidden">d</div></div>
-            
         </div>
-        
-
 </div>
-    <div class="formbut">
-                <a href="https://t.me/stolyarovden"><button class="btn btn-primary btn-floating" type="submit">
-                <i class="fa fa-send"></i>
-                </button></a>
-                <form action=""> 
-                    <fieldset> 
-                        <a href="#digest"><input type="button" onclick="pickMe(1)" class="btn btn-secondary" value="# дайджест" id='digest'></a>
-                        <a href="#pres"><input type="button" onclick="pickMe(2)" class="btn btn-secondary" value="# выступления" id='pres'></a>
-                        <a href="#pubs"><input type="button" onclick="pickMe(3)" class="btn btn-secondary" value="# публикации" id='pubs'></a>
-                        <a href="#projs"><input type="button" onclick="pickMe(4)" class="btn btn-secondary" value="# проекты 🔥" id='projs'></a>
-                        <a href="#contact"><input type="button" onclick="pickMe(5)" class="btn btn-secondary" value="# контакты" id='contact'></a>
-                        <a href="#eng"><input type="button" onclick="pickMe(6)" class="btn btn-secondary" value="# eng 🇬🇧" id='eng'></a>
-                    </fieldset>
-                </form> 
-            
-            </div>
+    <div class="chat-footer">
+        <a href="https://t.me/stolyarovden"><button class="btn btn-primary btn-floating" type="submit">
+        <i class="fa fa-send"></i>
+        </button></a>
+        <form action=""> 
+                <fieldset> 
+                    <a href="#digest"><input type="button" onclick="pickMe(1)" class="btn btn-secondary" value="# дайджест" id='digest'></a>
+                    <a href="#pres"><input type="button" onclick="pickMe(2)" class="btn btn-secondary" value="# выступления" id='pres'></a>
+                    <a href="#pubs"><input type="button" onclick="pickMe(3)" class="btn btn-secondary" value="# публикации" id='pubs'></a>
+                    <a href="#projs"><input type="button" onclick="pickMe(4)" class="btn btn-secondary" value="# проекты 🔥" id='projs'></a>
+                    <a href="#contact"><input type="button" onclick="pickMe(5)" class="btn btn-secondary" value="# контакты" id='contact'></a>
+                    <a href="#eng"><input type="button" onclick="pickMe(6)" class="btn btn-secondary" value="# eng 🇬🇧" id='eng'></a>
+                </fieldset>
+        </form> 
+    </div>
 </div>
+    
 </body>
+
 </html>
