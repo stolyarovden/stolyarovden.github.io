@@ -3635,11 +3635,11 @@ figure.avatar {
 }   
 
 .layout .content .chat .chat-body .messages {
-    bottom: 150px; /*track res*/
-    right: 67px; /*after photo*/
-    width: 80%; /*track res*/
-    padding: 10px; /*track res*/
-    padding-right: 30px; /*track res*/
+    bottom: 150px;
+    right: 67px; 
+    width: 80%; 
+    padding: 10px; 
+    padding-right: 30px; 
 }
 
 .layout .content .chat .chat-body .messages .message-item .message-content {
@@ -3686,11 +3686,11 @@ figure.avatar {
 }
 
 .layout .content .chat .chat-body .messages .message-item .message-content {
-    font-size: 14px;
+    font-size: 15px;
 }
     
 .layout .content .chat .chat-body .messages .message-item .message-action {
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .separator{
