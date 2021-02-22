@@ -3686,11 +3686,11 @@ figure.avatar {
 }
 
 .layout .content .chat .chat-body .messages .message-item .message-content {
-    font-size: 15px;
+    font-size: 14px;
 }
     
 .layout .content .chat .chat-body .messages .message-item .message-action {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .separator{
