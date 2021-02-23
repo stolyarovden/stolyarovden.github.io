@@ -3412,7 +3412,7 @@ body.form-membership .form-wrapper hr {
   position: fixed; 
   bottom: 125px; 
   right: 113px; 
-  width: 80%; 
+ /* width: 80%; */
   padding-right: 30px; 
 }
 
