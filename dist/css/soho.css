@@ -3628,7 +3628,7 @@ figure.avatar {
 
 }
     
-@media screen and (max-width:733px) {
+@media screen and (max-width:739px) {
 
 .separator{
     bottom: 146px;
@@ -3724,7 +3724,7 @@ figure.avatar {
 
 }
 
-@media screen and (max-width:337px) {
+@media screen and (max-width:340px) {
 
 .layout .content .chat .chat-body .messages {
     bottom: 175px; 
