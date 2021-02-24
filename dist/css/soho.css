@@ -275,14 +275,14 @@ a.btn:hover, a.btn:active, a.btn:focus {
 }
 
 .btn {
-  font-size: 17px;
+  font-size: 60px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -moz-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  padding: 10px 15px;
-  line-height: 14px;
+  padding: 30px 15px;
+  line-height: 25px;
 }
 
 .btn[data-toggle="dropdown"] {
@@ -530,13 +530,13 @@ a.btn:hover, a.btn:active, a.btn:focus {
 }
 
 .btn.btn-secondary { /*button nav*/
-  display: block;
-  float: right;
-  margin: 5px 0px;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
   margin-left: 10px;
   overflow: hidden;    
-  background: dimgray;
-  border-color: dimgray;
+  background: #464852;
+ /* border-color: dimgray; */
 }
 
 .btn.btn-secondary:not(:disabled):not(.disabled):hover, .btn.btn-secondary:not(:disabled):not(.disabled):focus, .btn.btn-secondary:not(:disabled):not(.disabled):active {
@@ -2388,7 +2388,7 @@ ul.list-inline.social-links .list-inline-item {
 figure.avatar { /*avatar position*/
   display: block;
   position: fixed; 
-  bottom: 83px;
+  bottom: 108px;
   right: -30px;
   margin: 50px 50px;
   overflow: hidden;
@@ -3254,22 +3254,20 @@ body.form-membership .form-wrapper hr {
 
 .chat-footer {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    left: 20px;
-    padding: 12px 20px;
-    padding-right: 76px;
+    bottom: 15px;
+    right: 34.3vw;
+    padding: 12px 15px;
     box-sizing: border-box;
     background-color: #464852;
-      -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 7px;
+      -webkit-border-radius: 7px;
+     -moz-border-radius: 10px;
+          border-radius: 25px;
     z-index: 100;
 }
 
 .separator {
     position: fixed;
-    bottom: 110px;
+    bottom: 140px;
     height: 2px;
     right: 20px;
     left: 20px;
@@ -3410,10 +3408,10 @@ body.form-membership .form-wrapper hr {
 
 .layout .content .chat .chat-body .messages { /*message location*/
   position: fixed; 
-  bottom: 125px; 
+  bottom: 150px; 
   right: 113px; 
-  /* width: 80%; */
-  max-width: 55%; 
+  width: 65%;
+  max-width: 80%; 
   padding-right: 30px; 
 }
 
@@ -3536,14 +3534,23 @@ body.form-membership .form-wrapper hr {
   margin-right: 0px;
 }
 
-@media screen and (max-width:1400px) { 
+@media screen and (max-width:1500px) { 
+    
+.chat-footer {
+    right: 29vw;
+    padding: 12px 15px;
+}  
+
+}
+
+@media screen and (max-width:1280px) { 
     
 .layout .content .chat .chat-body .messages {
     right: 95px; 
 }
     
 .layout .content .chat .chat-body .messages .message-item .message-content {
-    font-size: 20px;
+    font-size: 22px;
     padding: 18px 20px;
 }
     
@@ -3556,194 +3563,191 @@ figure.avatar.avatar-lg {
     width: 4rem;
 }
 
-.btn {
-    font-size: 16px;
+.chat-footer {
+    right: 26vw;
 }
 
 }
 
-@media screen and (max-width:950px) { 
+@media screen and (max-width:1024px) { 
+
+.layout .content .chat .chat-body .messages .message-item .message-content {
+    font-size: 24px;
+    padding: 18px 20px;
+}
+    
+.layout .content .chat .chat-body .messages {
+    max-width: 80%;
+}
+    
+.chat-footer {
+    right: 20vw;
+}
+
+}
+
+@media screen and (max-width:800px) { 
     
 .layout .content .chat .chat-body .messages {
     max-width: 100%;
-}
-}
-
-@media screen and (max-width:889px) { 
-
-.separator{
-    bottom: 103px;
+    bottom: 125px; 
 }
     
-.layout .content .chat .chat-body .messages .message-item .message-action {
-    font-size: 14px;
+.chat-footer {
+    right: 15vw;
+    padding: 10px 15px;
+}
+    
+.btn {
+  font-size: 50px;
+  padding: 20px 15px;
+}
+    
+.separator{
+    bottom: 115px;
 }
 
+figure.avatar {
+    bottom: 83px;
+    right: -30px;
+}
+
+}
+    
+@media screen and (max-width:768px) {
+
+.separator{
+    bottom: 116px;
+}
+    
 figure.avatar.avatar-lg {
     height: 2.8rem;
     width: 2.8rem;
 }
-
-figure.avatar {
-    bottom: 73px;
-    right: -30px;
-}
-
-.layout .content .chat .chat-body .messages {
-    bottom: 108px; 
-    right: 67px; 
-    width: 80%; 
-    padding: 10px; 
-    padding-right: 30px;
-}
-
-
-.layout .content .chat .chat-body .messages .message-item .message-content {
-    font-size: 16px;
-}
-    
-.btn {
-    font-size: 14px;
-    padding: 8px 13px;
-}
-
-.layout .content .chat .chat-footer form {
-    padding-right: 70px;
-}
-    
-.btn.btn-floating {
-    height: 32px;
-    width: 32px;
-    right: 23px;
-}
-    
-}
-
-@media screen and (max-width:803px) { 
-
-.btn {
-    font-size: 12px;
-    padding: 8px 13px;
-}
-
-}
-    
-@media screen and (max-width:739px) {
-
-.separator{
-    bottom: 146px;
-}
     
 .layout .content .chat .chat-body .messages .message-item .message-action {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 figure.avatar {
-    bottom: 115px;
+    bottom: 80px;
 }   
 
 .layout .content .chat .chat-body .messages {
-    bottom: 150px;
-    right: 67px; 
-    width: 80%; 
+    bottom: 118px;
+    right: 55px; 
     padding: 10px; 
     padding-right: 30px; 
 }
 
 .layout .content .chat .chat-body .messages .message-item .message-content {
-    font-size: 14px;
+    font-size: 18px;
 }
 
 }
  
-@media screen and (max-width:451px) {
+@media screen and (max-width:414px) {
 
 .btn {
-    font-size: 14px;
-    padding: 8px 10px;
+    font-size: 35px;
+    padding: 10px 1px;
 }
-.layout .content .chat .chat-body .messages .message-item .message-content {
-    font-size: 15px;
-}
-.layout .content .chat .chat-body .messages .message-item .message-action {
-    font-size: 13px;
-}
-    
+
 .layout .content .chat .chat-body .messages {
-    bottom: 195px; 
+    bottom: 85px; 
     width: 96%;
 }
 
-figure.avatar {
-    bottom: 160px;
- 
+.layout .content .chat .chat-body .messages .message-item .message-content {
+    font-size: 17px;
+}
+    
+.layout .content .chat .chat-body .messages .message-item .message-action {
+    font-size: 14px;
 }
 
 .separator{
-    bottom: 189px;
+    bottom: 85px;
 }
 
+.chat-footer {
+    bottom: 10px;
+    right: 5vw;
+    left: 5vw;
+    padding: 2% 3.3%;
+    border-radius: 20px;
+}    
+    
+figure.avatar {
+    bottom: 50px;
+ 
+}
 }
 
 
 @media screen and (max-width:375px) {
 
 .btn {
-    font-size: 14px;
-    padding: 8px 10px;
+    font-size: 35px;
+    padding: 10px 1px;
 }
-
-.layout .content .chat .chat-body .messages .message-item .message-content {
-    font-size: 14px;
-}
-    
-.layout .content .chat .chat-body .messages .message-item .message-action {
-    font-size: 12px;
-}
-
-.separator{
-    bottom: 189px;
-}
-
-}
-
-@media screen and (max-width:364px) {
-
-.btn {
-    font-size: 12px;
-    padding: 8px 10px;
-}
-    
-.layout .content .chat .chat-body .messages .message-item .message-content {
-    font-size: 14px;
-}
-
-.layout .content .chat .chat-body .messages .message-item .message-action {
-    font-size: 12px;
-}
-
-}
-
-@media screen and (max-width:340px) {
 
 .layout .content .chat .chat-body .messages {
-    bottom: 175px; 
+    bottom: 85px; 
     width: 96%;
 }
 
-figure.avatar {
-    bottom: 140px; 
-}
-
-.separator {
-    bottom: 170px;
+.layout .content .chat .chat-body .messages .message-item .message-content {
+    font-size: 17px;
 }
     
-.btn {
-    font-size: 10px;
-    padding: 5px 10px;
+.layout .content .chat .chat-body .messages .message-item .message-action {
+    font-size: 14px;
 }
 
+.separator{
+    bottom: 85px;
+}
+
+.chat-footer {
+    bottom: 10px;
+    right: 5vw;
+    left: 5vw;
+    padding: 2% 3.3%;
+    border-radius: 20px;
+}    
+    
+figure.avatar {
+    bottom: 50px;
+ 
+}
+
+}
+
+@media screen and (max-width:360px) {
+
+.btn {
+    font-size: 30px;
+    padding: 10px 1px;
+}
+    
+.layout .content .chat .chat-body .messages .message-item .message-content {
+    font-size: 14px;
+}
+
+.layout .content .chat .chat-body .messages .message-item .message-action {
+    font-size: 12px;
+}
+
+}
+
+@media screen and (max-width:320px) {
+
+.btn {
+    font-size: 20px;
+    padding: 1px 1px;
+}
+    
 .layout .content .chat .chat-body .messages .message-item .message-content {
     font-size: 12px;
 }
@@ -3751,5 +3755,6 @@ figure.avatar {
 .layout .content .chat .chat-body .messages .message-item .message-action {
     font-size: 10px;
 }
+    
 
 }
