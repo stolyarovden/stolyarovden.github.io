@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Воронеж — детство 40-х</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
+        :root {
+            --progress: 0%;
+        }
+
+        body {
+            scroll-behavior: smooth;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .progress-container {
+            height: 4px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .progress-bar {
+            height: 4px;
+            background-color: #000;
+            width: var(--progress);
+            transition: width 0.1s ease;
+        }
+
+        .nav-item.active {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .nav-item {
+            transition: all 0.3s ease;
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 80px 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: background-color 0.5s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .placeholder-img {
+            width: 100%;
+            height: 300px;
+            background-color: #f3f3f3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+            margin: 30px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out 0.3s, transform 0.6s ease-out 0.3s;
+        }
+
+        .section.visible .placeholder-img {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .date-marker {
+            position: absolute;
+            top: 80px;
+            right: 5%;
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+        }
+
+        .section.visible .date-marker {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
+        }
+
+        .section.visible .section-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes intense-flicker {
+        0%, 100% { opacity: 0; }
+        15% { opacity: 0.4; }
+        30% { opacity: 0.2; }
+        45% { opacity: 0.35; }
+        60% { opacity: 0.1; }
+        75% { opacity: 0.25; }
+        90% { opacity: 0.15; }
+      }
+
+      .explosion-flicker {
+        position: relative;
+        overflow: hidden;
+        background: black !important;
+      }
+
+      .explosion-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .fire-blur {
+        position: absolute;
+        background: radial-gradient(circle,
+          rgba(255, 165, 0, 0.4) 0%,
+          rgba(255, 50, 0, 0.3) 30%,
+          transparent 70%);
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        filter: blur(40px);
+        animation: fire-pulse 2s infinite;
+      }
+
+      @keyframes fire-pulse {
+        0% { transform: scale(0.8); opacity: 0; }
+        50% { transform: scale(1.2); opacity: 0.5; }
+        100% { transform: scale(0.8); opacity: 0; }
+      }
+
+      .random-blink {
+        animation: intense-flicker 1.5s infinite;
+        background: radial-gradient(circle,
+          rgba(255, 230, 0, 0.4) 0%,
+          rgba(255, 100, 0, 0.3) 50%,
+          transparent 100%);
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        filter: blur(50px);
+      }
+
+      .spark-burst {
+        animation: burst 3s infinite;
+        background: radial-gradient(circle,
+          rgba(255, 255, 200, 0.5) 0%,
+          rgba(255, 200, 0, 0.3) 50%,
+          transparent 100%);
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        filter: blur(30px);
+      }
+
+      @keyframes burst {
+        0% { transform: scale(0); opacity: 1; }
+        100% { transform: scale(3); opacity: 0; }
+      }
+
+      /* Magazine Quote Style */
+      .magazine-quote {
+          position: relative;
+          padding: 2rem 3rem;
+          margin: 3rem 0;
+          font-family: 'Playfair Display', serif;
+          font-size: 1.5rem;
+          line-height: 1.6;
+          color: #333;
+          background-color: #f9f9f9;
+          border-left: 4px solid #d4a017;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      }
+
+      .magazine-quote::before {
+          content: "“";
+          position: absolute;
+          top: 0;
+          left: 0.5rem;
+          font-size: 7rem;
+          font-family: Georgia, serif;
+          color: rgba(212, 160, 23, 0.2);
+          line-height: 1;
+      }
+
+      /* Cut Section Styles */
+      .cut-section {
+          min-height: 100vh;
+          padding: 80px 5%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          background-color: #fff;
+          position: relative;
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .cut-section.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
+
+      .cut-content {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
+          max-width: 4xl;
+          margin: 0 auto;
+      }
+
+      .cut-section.visible .cut-content {
+          opacity: 1;
+          transform: translateY(0);
+      }
+
+      .film-toggle {
+          display: none;
+      }
+
+      .film-label {
+          display: block;
+          width: 100%;
+          padding: 1rem;
+          background-color: #f3f3f3;
+          border-radius: 0.5rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          margin-bottom: 2rem;
+          text-align: left;
+          font-weight: 600;
+      }
+
+      .film-label:hover {
+          background-color: #e5e5e5;
+      }
+
+      .film-content {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.5s ease;
+      }
+
+      .film-toggle:checked ~ .film-content {
+          max-height: 2000px;
+      }
+
+      .film-container {
+          aspect-ratio: 16/9;
+          width: 100%;
+          margin-bottom: 2rem;
+      }
+
+      .awards-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+          margin-top: 2rem;
+      }
+
+      .award-img {
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+      }
+
+      /* Arrow rotation styles */
+      .film-label i {
+          transition: transform 0.3s ease;
+      }
+
+      .film-toggle:checked ~ .film-label i {
+          transform: rotate(90deg);
+      }
+
+      .film-label i {
+          transform: rotate(0deg);
+      }
+
+        @media (min-width: 768px) {
+            .section {
+                padding: 80px 15%;
+            }
+
+            .placeholder-img {
+                height: 400px;
+            }
+
+            .date-marker {
+                right: 15%;
+            }
+
+            .magazine-quote {
+                padding: 3rem 4rem;
+                font-size: 1.75rem;
+                margin: 4rem 0;
+            }
+
+            .cut-section {
+                padding: 80px 15%;
+            }
+
+            .awards-grid {
+                gap: 2rem;
+            }
+        }
+        /* Responsive title text */
+  .responsive-title {
+      font-size: clamp(2rem, 8vw, 4rem);
+      line-height: 1.2;
+  }
+
+  /* Logo container */
+  .logo-container {
+      margin-bottom: 1.5rem;
+      margin-top: -1rem; /* Lifts the logo higher */
+  }
+
+  /* Title section adjustments */
+.title-content {
+    padding-top: 5vh; /* Reduced from pt-24/32 to bring content higher */
+    transform: translateY(-10%); /* Lifts the entire content block */
+  }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Progress bar -->
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-4 left-0 right-0 z-50 px-5 md:px-15%">
+        <div class="bg-white bg-opacity-80 backdrop-blur-md rounded-full shadow-sm px-6 py-3 max-w-4xl mx-auto">
+            <div class="flex overflow-x-auto hide-scrollbar space-x-8">
+                <a href="#section1" class="nav-item text-sm whitespace-nowrap">Первые дни</a>
+                <a href="#section2" class="nav-item text-sm whitespace-nowrap">Захватчики в городе</a>
+                <a href="#section3" class="nav-item text-sm whitespace-nowrap">«Эвакуация»</a>
+                <a href="#section4" class="nav-item text-sm whitespace-nowrap">Остарбайтеры</a>
+                <a href="#section5" class="nav-item text-sm whitespace-nowrap">Возвращение</a>
+                <a href="#section6" class="nav-item text-sm whitespace-nowrap">Победа</a>
+                <a href="#section7" class="nav-item text-sm whitespace-nowrap">PS</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content sections -->
+    <main>
+        <!-- Title section -->
+        <section id="title" class="section explosion-flicker visible relative h-screen">
+          <!-- Explosion effects -->
+
+          <div class="explosion-layer">
+            <div class="random-blink" style="top:10%; left:5%; animation-delay:0.2s"></div>
+            <div class="random-blink" style="top:30%; right:15%; animation-delay:1.1s"></div>
+            <div class="random-blink" style="bottom:20%; left:25%; animation-delay:0.7s"></div>
+
+        <!--    <div class="spark-burst" style="top:40%; left:60%; animation-duration:2.5s"></div>
+            <div class="spark-burst" style="top:15%; right:30%; animation-duration:3.2s"></div>-->
+
+            <div class="fire-blur" style="top:50%; left:20%"></div>
+            <div class="fire-blur" style="top:10%; right:40%"></div>
+          </div>
+
+          <!-- Content -->
+          <div class="max-w-4xl mx-auto relative z-50 title-content px-5">
+            <!-- Logo positioned above title -->
+  <div class="logo-container">
+      <img
+         src="https://raw.githubusercontent.com/stolyarovden/stolyarovden.github.io/refs/heads/master/img/logo80.png"
+         alt="Pobeda 80 Logo"
+         class="w-auto h-auto max-h-28 md:max-h-28 hover:scale-110 transition-transform"
+         loading="lazy"
+         decoding="async"
+       >
+  </div>
+  <!-- Responsive title -->
+           <h1 class="responsive-title font-bold mb-6 text-white drop-shadow-[0_0_8px_rgba(255,165,0,0.6)]">
+             Воронеж — детство 40-х
+           </h1>
+           <p class="text-lg md:text-xl text-gray-200 drop-shadow-[0_0_4px_rgba(255,140,0,0.4)]">
+             Воспоминания о войне, которая пришла в родной город девочки Нади
+           </p>
+    </div>
+        </section>
+
+        <!-- Section 1 -->
+        <section id="section1" class="section bg-white">
+          <!--  <div class="date-marker">Июнь 1941</div>-->
+            <div class="max-w-4xl mx-auto section-content">
+                <p class="text-sm text-gray-500 mb-2">Июнь 1941</p>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Первые дни</h2>
+                <div class="text-lg md:text-xl leading-relaxed space-y-6">
+                    <p>Когда война началась мне, наверное, и восьми не было. Мой день рождения в ноябре, а война началась в июне, 22-го числа…</p>
+
+                    <!-- Historical Context Insertion -->
+                    <div class="historical-timeline mb-20 fade-in text-justify">
+                        <!-- <div class="relative pb-100">-->
+                            <div class="timeline-content bg-[#FAF4E6] p-8 rounded-xl shadow-lg border-l-4 border-red-600">
+                                <h3 class="text-xl font-bold text-gray-800 mb-4 font-serif">Историческая справка</h3>
+
+                                <div class="space-y-4 text-gray-700 text-sm">
+                                    <p class="leading-relaxed">
+                                        <span class="highlight bg-red-100 px-0">22 июня 1941 года</span> фашистская Германия напала на Советский Союз, началась Великая Отечественная война.
+                                    </p>
+
+                                    <p class="leading-relaxed">
+                                        За три года до этого перед натиском Вермахта пала практически вся Европа. Воронежская область была объявлена на военном положении в первый же день войны. Вся городская жизнь перестраивалась с учетом реалий военного времени.
+                                    </p>
+
+                                    <p class="leading-relaxed">
+                                        Летом 41-го промышленные предприятия Воронежа переходят на выпуск продукции для фронта. Завод имени Коминтерна начинает выпускать реактивные установки «Катюша», Воронежский авиационный завод производит самолеты-штурмовики Ил-2, Отрожский вагоноремонтный завод осваивает производство зенитных бронеплощадок. Перешли на военное производство воронежские заводы имени Дзержинского, Ленина и «Электросигнал». В конце 41-го - начале 42-го года начинает эвакуация заводов.
+                                    </p>
+                                </div>
+                            </div>
+                        <!--  </div>-->
+                    </div>
+                    <p>Эвакуировали в первую очередь тех, кто работал на предприятиях, которые производили продукцию для фронта. В эту очередь попала моя родная тетка по матери и двоюродная сестра Тамара – ее муж работал на производстве самолетов. А мы – остались.</p>
+                </div>
+            <!--    <div class="placeholder-img">Placeholder.PNG</div>-->
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="section2" class="section bg-gray-100">
+          <!--  <div class="date-marker">Июль 1942</div> -->
+            <div class="max-w-4xl mx-auto section-content">
+                <p class="text-sm text-gray-500 mb-2">Июль 1942</p>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Захватчики в городе</h2>
+                <div class="text-lg md:text-xl leading-relaxed space-y-6">
+                <!-- Historical Context Insertion -->
+                <div class="historical-timeline fade-in text-justify">
+                    <!-- <div class="relative pb-100">-->
+                        <div class="timeline-content bg-[#FAF4E6] p-8 rounded-xl shadow-lg border-l-4 border-red-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 font-serif">Историческая справка</h3>
+
+                            <div class="space-y-4 text-gray-700 text-sm">
+                                <p class="leading-relaxed">
+                                    Тем временем, армейские части Вермахта продолжали наступление на Восток. Наступательная операция немцев под Воронежем носила кодовое название <span class="highlight bg-red-100 px-0">«Blau»</span>. В начале лета 1942-го года город подвергается массированным воздушным бомбардировкам. Закрываются школы и детские сады — в них размещают раненых.
+                                </p>
+                                <p class="leading-relaxed">
+                                    7 июля вооруженные силы фашистской Германии входят в город. Немцы оккупируют правый берег реки Воронеж. Части Красной армии занимают оборону на Левом берегу и в Березовой роще.</p>
+                            </div>
+                        </div>
+                    <!--  </div>-->
+                </div>
+                    <p>Помню – жара была. У нас во дворе были две собаки: Тузик и Роска. Мы их со двора не выпускали – они гуляли на привязи, двор-то у нас был немаленький. </p>
+                    <div class="magazine-quote">И вдруг тут шум-гам, все говорят: «Немец идет по улице!». Немцы шли все с автоматами – зашли к нам во двор, собаки залаяли, и они сразу же застрелили их так, что те повисли на проволоке. Дети моментально притихли.</div>
+                    <p>Немцы прошли через двор, сломали забор, и заставили моего отца нести самовар к офицеру на другую улицу чай пить. Мой отец ни слова не говорил – тех, кто им перечил, расстреливали без объяснений. Папа, бедный мой, он молодой был, со второго года, 40 лет всего, инвалид Финской войны.</p>
+                    <div class="magazine-quote">Он за этот один день постарел лет на 10, наверное. Он вернулся, весь уставший, весь поник, как старик стал. И разговор даже у него не тот. Но слава Богу, что жив остался. Нам это уже было дорого, что отец наш жив.</div>
+                    <div class="historical-timeline fade-in text-justify">
+                        <!-- <div class="relative pb-100">-->
+                            <div class="timeline-content bg-[#FAF4E6] p-8 rounded-xl shadow-lg border-l-4 border-red-600">
+                                <h3 class="text-xl font-bold text-gray-800 mb-4 font-serif">Историческая справка</h3>
+
+                                <div class="space-y-4 text-gray-700 text-sm">
+                                    <p class="leading-relaxed">
+                                        На оккупированной воронежской территории фашисты устраивали массовые расстрелы и показательные казни. Из братской могилы в Песчаном логу было извлечено 450 трупов, из них 35 детских.
+                                    </p>
+                                    <p class="leading-relaxed">
+                                        <span class="highlight bg-red-100 px-0">Несколько тысяч</span> мирных жителей были казнены в области.</p>
+                                </div>
+                            </div>
+                        <!--  </div>-->
+                    </div>
+                </div>
+              <!--    <div class="placeholder-img">Placeholder.PNG</div>-->
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="section3" class="section bg-white">
+            <!--<div class="date-marker">Август 1942</div>-->
+            <div class="max-w-4xl mx-auto section-content">
+                <p class="text-sm text-gray-500 mb-2">Июль — Август 1942</p>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">«Эвакуация»</h2>
+                <div class="text-lg md:text-xl leading-relaxed space-y-6">
+                    <p>Недели, наверное, через две немцы сказали: «Собирайтесь, «эвакуировать» вас будут». А брать с собой вещей много не велели. Мой отец моим сестрам кому - чего привязывал: кому таз, кому кастрюлю, кому половник, а я ему со слезами говорю: «Я не понесу ни таз, ни половник, ничего. Я хочу взять кукол!». Потому что я не наигралась в детстве куклами! И несмотря на то, что я старше сестер была, отец повязал на плечи небольшой мешочек и разрешил взять, не очень много. Я взяла свою куклу и любимую посудку детскую.</p>
+                    <div class="historical-timeline fade-in text-justify">
+                        <!-- <div class="relative pb-100">-->
+                            <div class="timeline-content bg-[#FAF4E6] p-8 rounded-xl shadow-lg border-l-4 border-red-600">
+                                <h3 class="text-xl font-bold text-gray-800 mb-4 font-serif">Историческая справка</h3>
+
+                                <div class="space-y-4 text-gray-700 text-sm">
+                                    <p class="leading-relaxed">
+                                        Немецким командованием издается специальный указ, согласно которому, жители Воронежа должны были покинуть город в течение 24 часов. Начинается принудительный угон гражданского населения.
+                                    </p>
+                                    <p class="leading-relaxed">
+                                        В первые годы войны для принудительного труда на Запад с оккупированных территорий ежедневно угоняется до <span class="highlight bg-red-100 px-0">10000 советских граждан</span>.</p>
+                                </div>
+                            </div>
+                        <!--  </div>-->
+                    </div>
+                    <div class="magazine-quote">Когда эвакуировались – шли очень тяжело и долго. Под конвоем с собаками. Дети уставали. Ноги отнимались – просто невозможно! А потом нас погрузили в скотные вагоны с открытой крышей. Народу набивали полностью: дышать было нечем. Вот это никогда не забудешь. Если в туалет дети захотят, то тут же стоя, не сидя – сесть там было негде, родители собой закрывали, и дети ходили в туалет. </div>
+                </div>
+                <!--  <div class="placeholder-img">Placeholder.PNG</div>-->
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section id="section4" class="section bg-gray-100">
+          <!--  <div class="date-marker">Сентябрь 1942</div> -->
+            <div class="max-w-4xl mx-auto section-content">
+                <p class="text-sm text-gray-500 mb-2">Сентябрь 1942 — Февраль 1943</p>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Остарбайтеры</h2>
+                <div class="text-lg md:text-xl leading-relaxed space-y-6">
+                    <p>И пригнал нас немец на Украину. Там опять на какой-то пункт, чтобы нас всех распределить по домам. И когда нас туда вселяли, те люди, украинцы, не хотели нас. Они не хотели, чтобы мы пришли. А мы не по своей воле пришли… </p>
+                    <p>Ну, дали нам какую-то комнатку, девятиметровку. Папу послали садовником быть, потому что он инвалид, а маму, ей было 38 лет, ее послали свиней сторожить. Сестра моя пошла побираться, чтобы нам было что покушать. Работу-то дали, а есть было нечего.</p>
+                      <div class="magazine-quote">Спустя время, к осени, нас стали всех выгонять из домов. Отец отрастил бороду, меня подстриг, сестру подстриг и маму подстриг. И мы втроем лежим на лежанке в доме. Немцы заходят, а мы все лысые и отец так говорит: «Тиф!». Просто обманул их отец. Это было очень рискованно.</div>
+                      <div class="historical-timeline fade-in text-justify">
+                          <!-- <div class="relative pb-100">-->
+                              <div class="timeline-content bg-[#FAF4E6] p-8 rounded-xl shadow-lg border-l-4 border-red-600">
+                                  <h3 class="text-xl font-bold text-gray-800 mb-4 font-serif">Историческая справка</h3>
+
+                                  <div class="space-y-4 text-gray-700 text-sm">
+                                      <p class="leading-relaxed">
+                                          Тем временем в Воронеже идут ожесточенные бои. Листовки, распространяемые среди немецких солдат, гласили: «Солдаты! Ваши знамена прошелестели над городами Европы. Вам осталось взять Воронеж. Вот он – перед вами. Возьмите его, заставьте склониться! Воронеж – это конец войны. Воронеж – это отдых. Вперед!».
+                                      </p>
+                                      <p class="leading-relaxed">
+                                          Ещё 10 июля барон фон Вейхс заявляет о победоносном взятии Воронежа. Но фашисты <span class="highlight bg-red-100 px-0">так и не смогли захватить город полностью</span>. Уже осенью 42-го летние успехи Вермахта на Восточном направлении превращаются в прах: в результате операции <span class="highlight bg-red-100 px-0">«Малый Сатурн»</span> были освобождены более 200 населенных пунктов Воронежской области. Складывается благоприятная обстановка для освобождения Воронежа.</p>
+                                  </div>
+                              </div>
+                          <!--  </div>-->
+                      </div>
+                      <p>Через какое-то время местные снова куда-то гонят нас, чтобы пустые дома были. И мы идем. Становимся опять, как нас из Воронежа гнали. Шли-шли и уже к темноте. И тут какой-то дом папа увидел – крайний, чтобы можно было туда бежать и переночевать, чтобы не идти дальше. Видно, это судьба. Мы вбежали в этот дом. Он посмотрел – погреб есть, и говорит нам лезть туда. Распорол подушки, перьев туда насыпал, чтобы в холодном погребе тепло было. А сам всю ночь не спал на веранде. И папа иногда нам, нет-нет, и говорит: «Мать, ты спишь?», а она ему «Где ж спать». Мы-то дети спали. Говорит: «Наверное, все-таки наши придут, все-таки наши придут». А она ему: «Ой, отец, мы, наверное, в этом погребе и помрем». «Нет, мать, душа у меня чувствует, что наши придут».</p>
+                      <p>И вдруг утром на рассвете пришли наши. Ехали на лошадях, отец нам кричит: «Дочки, поднимайтесь, наши пришли, русские!». И мы оттуда вылезли и видим – правда, наши солдаты на лошадях машут флагами и кричат: «Выходите!». Сразу столько вышло людей! </p>
+                      <div class="historical-timeline fade-in text-justify">
+                          <!-- <div class="relative pb-100">-->
+                              <div class="timeline-content bg-[#FAF4E6] p-8 rounded-xl shadow-lg border-l-4 border-red-600">
+                                  <h3 class="text-xl font-bold text-gray-800 mb-4 font-serif">Историческая справка</h3>
+
+                                  <div class="space-y-4 text-gray-700 text-sm">
+                                      <p class="leading-relaxed">
+                                           <span class="highlight bg-red-100 px-0">212 дней и ночей</span> сражался с немецко-фашистскими захватчиками город Воронеж.
+                                      </p>
+                                      <p class="leading-relaxed">
+                                          25 января 1943 года, ценою тысяч жизней, Воронеж был освобожден.
+                                      </p>
+                                  </div>
+                              </div>
+                          <!--  </div>-->
+                      </div>
+                </div>
+                <!--   <div class="placeholder-img">Placeholder.PNG</div>-->
+            </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="section5" class="section bg-white">
+          <!--  <div class="date-marker">Февраль 1943</div>-->
+            <div class="max-w-4xl mx-auto section-content">
+                <p class="text-sm text-gray-500 mb-2">Февраль 1943 — Апрель 1945</p>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Возвращение</h2>
+                <div class="text-lg md:text-xl leading-relaxed space-y-6">
+                    <p>И власть поменялась, уже в сельсовете русские. Отец пошел туда, в сельсовет. Это был конец января. Там он узнал, что Воронеж уже освободили. Мы перекрестились, и отец говорит: «Надо немедленно ехать домой!». А там отвечают – когда придет очередь. Отец тогда пришел и говорит: «Мать, давай мы сегодня ночью уедем. У нас вещей нет, только Надька, да Верка. Ты Верку будешь держать, я буду Надьку держать на коленях». И мы ехали в поезде на месте сцепки вагонов. </p>
+                    <div class="magazine-quote">Отец сидел на одной стороне, а ногами упирался в другой вагон. И меня он чуть не уронил. Но, судьба – не уронил. </div>
+                    <p>Когда приехали в Воронеж, мы вернулись в свой родной дом в центре города, на улицу Трудовую: стекла у него все были повыбитые, отец заделал два окна кирпичами, а на верху оставил небольшие прогалины. Жили в нем с еще одной семьей.</p>
+                    <div class="historical-timeline fade-in text-justify">
+                        <!-- <div class="relative pb-100">-->
+                            <div class="timeline-content bg-[#FAF4E6] p-8 rounded-xl shadow-lg border-l-4 border-red-600">
+                                <h3 class="text-xl font-bold text-gray-800 mb-4 font-serif">Историческая справка</h3>
+
+                                <div class="space-y-4 text-gray-700 text-sm">
+                                    <p class="leading-relaxed">
+                                        После оккупации Воронеж лежал в руинах. По разным оценкам <span class="highlight bg-red-100 px-0">от 92% до 95% зданий было разрушено</span>. Все, что уцелело во время сражений, фашисты уничтожили перед бегством из города.
+                                    </p>
+                                    <p class="leading-relaxed">
+                                        Были взорваны здания Воронежского госуниверситета, сейчас на этом месте находится городской детский парк, Воронежский Дом пионеров, сейчас там располагается корпус Воронежской технологической академии, зданий ОБКОМа партии, где сейчас стоит здание Никитинской библиотеки.
+                                    </p>
+                                    <p class="leading-relaxed">
+                                        Но в Воронеж уже возвращались и эвакуированные, и угнанные жители — жизнь в городе начинала налаживаться.
+                                    </p>
+                                </div>
+                            </div>
+                        <!--  </div>-->
+                    </div>
+                </div>
+                <!--  <div class="placeholder-img">Placeholder.PNG</div>-->
+            </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section id="section6" class="section bg-gray-100">
+            <!--  <div class="date-marker">Май 1945</div>-->
+            <div class="max-w-4xl mx-auto section-content">
+                <p class="text-sm text-gray-500 mb-2">Май 1945</p>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Победа</h2>
+                <div class="text-lg md:text-xl leading-relaxed space-y-6">
+                    <p>Дело близилось к победе, к нам на улицу пришли электрики и повесили на уличные столбы такие большие граммофоны. Мы спрашиваем: «Что это такое?», а те, у кого был радиоприемник, уже знали, что война кончится вот-вот-вот.</p>
+                    <div class="historical-timeline fade-in text-justify">
+                        <!-- <div class="relative pb-100">-->
+                            <div class="timeline-content bg-[#FAF4E6] p-8 rounded-xl shadow-lg border-l-4 border-red-600">
+                                <h3 class="text-xl font-bold text-gray-800 mb-4 font-serif">Историческая справка</h3>
+
+                                <div class="space-y-4 text-gray-700 text-sm">
+                                    <p class="leading-relaxed">
+                                        1 мая 1945 года над Рейхстагом советскими солдатами Алексеем Берестом, Михаилом Егоровым и Мелитоном Кантарией установлен штурмовой флаг 150-й Ордена Кутузова Второй степени Идрицкой стрелковой дивизии – Знамя Победы.
+                                    </p>
+                                  <p class="leading-relaxed">  В полночь восьмого мая был подписан <span class="highlight bg-red-100 px-0">акт о безоговорочной капитуляции</span> фашистской Германии.
+                                    </p>
+                                    <p class="leading-relaxed">
+                                      <span class="highlight bg-red-100 px-0">9 мая 1945 года весь Советский Союз отмечал День победы в Великой Отечественной войне! </span>
+                                    </p>
+                                </div>
+                            </div>
+                        <!--  </div>-->
+                    </div>
+                    <p>Долгожданный День победы как праздновали: мы, дети, радовались, нам давали на мороженое! И мы бежали на проспект, там музыка везде играла, гуляли девушки и солдаты с орденами, а соседи собирались, у кого что было, то несли и выпивали рюмочку за День победы, и танцевали под гармошку. У нас был гармонист один на улице, один единственный, он играл – все были в восторге!</p>
+                    <div class="magazine-quote">Этот день забыть – наверное, никогда я не забуду, пока глазки мои смотрят. Уж умру, тогда и забуду.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7 -->
+        <section id="section7" class="section bg-white">
+          <!--  <div class="date-marker">Май 1945</div>-->
+            <div class="max-w-4xl mx-auto section-content">
+                <p class="text-sm text-gray-500 mb-2">∞</p>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">PS</h2>
+                <div class="text-lg md:text-xl leading-relaxed space-y-6">
+                    <p>И даже вот когда война кончилась, никогда не вспоминали ее мы. Если бы я знала, что столько я проживу, например, аж до 80 лет, я бы многое могла у отца спросить. Но никогда не спрашивали про эту войну, ведь у них всю молодость, а у нас все детство отобрала она.</p>
+                    <div class="magazine-quote">Хоть сейчас и трудно это вспоминать, но вспоминать это надо. Потому что, если мы сейчас вспоминать войну не будем, наши внуки и правнуки ничего не будут знать про нее. Мы все пожилого возраста, а нас, не очень много осталось, и поэтому надо говорить молодежи, а молодежь уже будет своим детям и своим внукам рассказывать.</div>
+                </div>
+                <br>
+                <div class="historical-timeline fade-in">
+                    <div class="timeline-content bg-gray-50 p-8 rounded-xl shadow-lg border-l-4 border-black flex gap-8">
+                        <!-- Photo & Name Section -->
+                        <div class="w-1/3 flex flex-col items-center pr-8">
+                            <img src="https://raw.githubusercontent.com/stolyarovden/stolyarovden.github.io/refs/heads/master/img/nts.png"
+                                 alt="Фото"
+                                 class="w-32 h-32 object-cover rounded-full mb-4 border-2 border-gray-300">
+                            <h4 class="font-bold text-gray-800 text-center mb-1">Надежда Терентьевна Столярова</h4>
+                            <p class="text-sm text-gray-600 text-center">1934 — 2021</p>
+                        </div>
+
+                        <!-- Bio Section -->
+                        <div class="w-2/3 space-y-4 text-gray-700">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 font-serif">Биографическая справка</h3>
+                            <p class="leading-relaxed text-justify">
+                                Надежда родилась 14 ноября 1934 года в Воронеже в семье Терентия Кондратьевича и Любови Тихоновны Дегтярёвых. На начало Великой Отечественной войны ей было 7 лет. После возвращения семьи в Воронеж перенесла тяжёлое заболевание, из-за чего начала обучение в школе только в 10 лет.
+                            </p>
+                            <p class="leading-relaxed text-justify">
+                                Окончив школу, устроилась на Воронежский завод радиодеталей, где 10 лет проработала в гальваническом цеху. Позже окончила курсы поваров и посвятила годы труду в системе общественного питания. На пенсию вышла в 50 лет.
+                            </p>
+                            <p class="leading-relaxed text-justify">
+                                В 1958 году вышла замуж за Анатолия Столярова. Воспитала сына Валерия и дочь Елену, стала бабушкой Дениса и Марины.
+                            </p>
+                            <p class="leading-relaxed text-justify">
+                                Ушла из жизни 20 октября 2021 года от осложнений, вызванных COVID-19, не дожив 25 дней до своего 87-летия.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <input type="checkbox" id="film-toggle" class="film-toggle">
+                <label for="film-toggle" class="film-label">
+                    Дополнительные материалы
+                    <i class="fas fa-chevron-right ml-2"></i>
+                </label>
+
+                <div class="film-content">
+                    <div class="text-lg md:text-xl leading-relaxed space-y-6"><a href="https://www.imdb.com/title/tt36465164/?ref_=nv_sr_srsg_7_tt_5_nm_3_in_0_q_voronezh"
+                        target="_blank"
+                        class="underline underline-offset-4 decoration-2 bg-yellow-100 px-1 hover:bg-yellow-200 transition-colors">Документальный фильм «Воронеж — детство 40-х» (2010)</a></div><br>
+                    <div class="film-container">
+                        <iframe
+                            src="https://vkvideo.ru/video_ext.php?oid=-177996384&id=456239047&hd=3"
+                            width="100%"
+                            height="100%"
+                            allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                            frameborder="0"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="awards-grid">
+                        <img src="https://raw.githubusercontent.com/stolyarovden/stolyarovden.github.io/refs/heads/master/img/wf.png" alt="Award 1" class="award-img">
+                        <img src="https://raw.githubusercontent.com/stolyarovden/stolyarovden.github.io/refs/heads/master/img/tnt.png" alt="Award 2" class="award-img">
+                        <img src="https://raw.githubusercontent.com/stolyarovden/stolyarovden.github.io/refs/heads/master/img/ng.png" alt="Award 3" class="award-img">
+                    </div>
+                    <div class="text-lg md:text-xl leading-relaxed space-y-6">
+                      <a href="https://www.litres.ru/book/zahar-prilepin/kak-my-perezhili-voynu-narodnye-istorii-18826876/"
+                        target="_blank"
+                        class="underline underline-offset-4 decoration-2 bg-yellow-100 px-1 hover:bg-yellow-200 transition-colors">Книга «Как мы пережили войну. Народные истории» (2015)</a><br>
+                        История Надежды опубликована в книге из серии «Народная книга» издательства АСТ и телерадиокомпания «Звезда».
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- Film Section -->
+
+
+
+
+        <!-- Footer -->
+        <footer class="bg-black text-white py-16 px-5 md:px-15%">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="mb-8 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-4">Воронеж — детство 40-х</h3>
+                        <p class="text-gray-400">2010 — 2025 // Проект Дениса Столярова</p>
+                    </div>
+                    <div>
+                      <img src="https://raw.githubusercontent.com/stolyarovden/stolyarovden.github.io/refs/heads/master/img/exlb.png"  class="w-24 h-auto object-contain">
+                        <!-- <p class="text-gray-400 text-sm">2010 — 2025</p>-->
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Progress bar logic
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollProgress = (scrollTop / scrollHeight) * 100;
+
+            document.documentElement.style.setProperty('--progress', `${scrollProgress}%`);
+
+            // Update active nav item
+            updateActiveNavItem();
+
+            // Check for sections to animate
+            checkForAnimations();
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update active nav item based on scroll position
+        function updateActiveNavItem() {
+            const sections = document.querySelectorAll('section[id]');
+            const navItems = document.querySelectorAll('.nav-item');
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (window.scrollY >= sectionTop - 200) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                const href = item.getAttribute('href').substring(1);
+                if (href === currentSection) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // Check if sections are in viewport for animation
+        function checkForAnimations() {
+            const sections = document.querySelectorAll('.section:not(.visible), .cut-section:not(.visible)');
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight * 0.75) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make title section visible immediately
+            document.querySelector('#title').classList.add('visible');
+
+            // Check for animations on load
+            checkForAnimations();
+
+            // Update active nav item
+            updateActiveNavItem();
+        });
+    </script>
+</body>
+</html>
